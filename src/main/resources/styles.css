@@ -1,0 +1,7 @@
+.table-view:row-selection .table-row-cell:filled:hover { 
+    -fx-background-color: #1cb7ec40;
+}
+
+.table-view:row-selection .table-row-cell:filled:selected { 
+    -fx-background-color : #1cb7eca6;
+}
