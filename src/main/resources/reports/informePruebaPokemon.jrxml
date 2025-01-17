@@ -1,0 +1,237 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="informePruebaPokemon" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman">
+		<conditionalStyle mode="Transparent" backcolor="#C24E46" radius="0">
+			<pen lineWidth="3.0" lineColor="#030303"/>
+			<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+				<pen lineWidth="0.0" lineColor="#C24E46"/>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle mode="Opaque" backcolor="#F0EFEF">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<parameter name="FiltroNombre" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[SELECT *
+FROM `PokedexDB`.`POKEMON` 
+WHERE nombre_pokemon 
+LIKE $P{FiltroNombre}]]></query>
+	<field name="id_pokemon" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_pokemon"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_pokemon"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POKEMON"/>
+	</field>
+	<field name="nombre_pokemon" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre_pokemon"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre_pokemon"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POKEMON"/>
+	</field>
+	<field name="nivel_pokemon" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nivel_pokemon"/>
+		<property name="com.jaspersoft.studio.field.label" value="nivel_pokemon"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POKEMON"/>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POKEMON"/>
+	</field>
+	<field name="num_pokedex" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="num_pokedex"/>
+		<property name="com.jaspersoft.studio.field.label" value="num_pokedex"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POKEMON"/>
+	</field>
+	<field name="imagen" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="imagen"/>
+		<property name="com.jaspersoft.studio.field.label" value="imagen"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POKEMON"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="148" splitType="Stretch">
+		<element kind="frame" uuid="6c6ca4e1-17cd-4913-93d6-5e670ea9ae8a" mode="Opaque" x="-20" y="-20" width="595" height="120" backcolor="#75110F">
+			<element kind="staticText" uuid="a2a2cac8-5a7d-4487-8c54-dab235ce4e21" mode="Transparent" x="0" y="0" width="595" height="66" backcolor="#66211C" bold="false" hTextAlign="Center" vTextAlign="Middle" style="Title">
+				<text><![CDATA[INFORME POKEMON]]></text>
+			</element>
+			<element kind="staticText" uuid="8978eac3-c578-41c9-837e-48d2b0184642" x="219" y="60" width="150" height="29" fontSize="22.0" bold="false" hTextAlign="Center" vTextAlign="Top" style="SubTitle">
+				<text><![CDATA[Informe normal]]></text>
+			</element>
+			<element kind="rectangle" uuid="4108b96c-24a8-4f91-9015-f04517363bfa" x="370" y="66" width="206" height="17" radius="13"/>
+			<element kind="rectangle" uuid="f0525e73-abaf-4960-a34c-093616e72974" x="20" y="65" width="198" height="17" radius="13"/>
+			<box>
+				<pen lineWidth="10.0" lineColor="#630A09"/>
+			</box>
+		</element>
+		<element kind="frame" uuid="e3c14156-5b51-4201-918b-97fdc012e5d4" mode="Opaque" x="-20" y="100" width="595" height="34" forecolor="#000000" backcolor="#8A8A8A">
+			<element kind="textField" uuid="5c3301e7-a737-4c59-8a2f-a6c79fd1adb8" x="70" y="0" width="171" height="34" forecolor="#030303" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" hTextAlign="Right" vTextAlign="Middle">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+			<element kind="staticText" uuid="9fa18c4c-b0d1-4c83-a580-c2ec97f6d36e" x="20" y="0" width="50" height="34" forecolor="#030303" backcolor="#FFFFFF" bold="false" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[FECHA:]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a22f4ee9-cf49-4cea-b0b0-625367d7facc"/>
+			</element>
+		</element>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="58" splitType="Stretch">
+		<element kind="staticText" uuid="de3cb44a-6152-45d3-82d5-ec913140e553" mode="Opaque" x="0" y="7" width="50" height="18" forecolor="#FFFFFF" backcolor="#030303" bold="false" hTextAlign="Center" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d93f35cc-e58b-4f9f-9693-2065ef93f74b"/>
+			<box style="Column header">
+				<pen lineWidth="0.75"/>
+				<rightPen lineColor="#030303"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="b54dd107-4c5c-4100-994d-2d0eeb5de48f" mode="Opaque" x="50" y="7" width="100" height="18" forecolor="#FFFFFF" backcolor="#030303" bold="false" hTextAlign="Left" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[Nombre]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a22f4ee9-cf49-4cea-b0b0-625367d7facc"/>
+			<box style="Column header">
+				<pen lineWidth="0.75"/>
+				<rightPen lineColor="#030303"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="1d199082-912b-445c-9ead-c6c97181b5b8" mode="Opaque" x="150" y="7" width="72" height="18" forecolor="#FFFFFF" backcolor="#030303" bold="false" hTextAlign="Left" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[Nivel]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c210702b-0b82-480c-8f24-b7f068bb41d5"/>
+			<box style="Column header">
+				<pen lineWidth="0.75"/>
+				<rightPen lineColor="#030303"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="2efc4d9c-fbc9-41c1-bf22-75271eee4d87" mode="Opaque" x="222" y="7" width="88" height="18" forecolor="#FFFFFF" backcolor="#030303" bold="false" hTextAlign="Left" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[tipo]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8945c73b-f75d-44d0-b2be-efaf61359a92"/>
+			<box style="Column header">
+				<pen lineWidth="0.75"/>
+				<rightPen lineColor="#030303"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="41aef859-6a2e-442f-845d-d5968f19899b" mode="Opaque" x="310" y="7" width="100" height="18" forecolor="#FFFFFF" backcolor="#030303" bold="false" hTextAlign="Left" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[Nº Pokedex]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf73a6e4-8c71-45b2-9d26-8df0ffdf51b2"/>
+			<box style="Column header">
+				<pen lineWidth="0.75"/>
+				<rightPen lineColor="#030303"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="01212559-f1ec-44e2-af71-a32293f6fce3" mode="Opaque" x="410" y="7" width="145" height="18" forecolor="#FFFFFF" backcolor="#030303" bold="false" hTextAlign="Left" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[Imagen]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf73a6e4-8c71-45b2-9d26-8df0ffdf51b2"/>
+			<box style="Column header">
+				<pen lineWidth="0.75"/>
+				<rightPen lineColor="#030303"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="64" splitType="Stretch">
+			<element kind="frame" uuid="b50221b5-8254-440b-8c6f-1f0b138c9259" mode="Opaque" x="0" y="-33" width="555" height="93" style="Row">
+				<element kind="textField" uuid="80c83711-81a9-46ca-a067-3eff5658cb87" positionType="Float" x="0" y="0" width="50" height="60" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle" style="Detail">
+					<expression><![CDATA[$F{id_pokemon}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d93f35cc-e58b-4f9f-9693-2065ef93f74b"/>
+					<box style="Detail">
+						<pen lineWidth="1.0" lineColor="#661E1D"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="2.75" lineStyle="Solid" lineColor="#941412"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="8e776488-610f-413c-82b9-3c5ab5a6fd5f" positionType="Float" x="50" y="0" width="100" height="60" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle" style="Detail">
+					<expression><![CDATA[$F{nombre_pokemon}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a22f4ee9-cf49-4cea-b0b0-625367d7facc"/>
+					<box style="Detail">
+						<pen lineWidth="1.0" lineColor="#661E1D"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="2.75" lineStyle="Solid" lineColor="#941412"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="4033a4b2-4480-44ce-bbb9-0649d58ddcc6" positionType="Float" x="150" y="0" width="72" height="60" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle" style="Detail">
+					<expression><![CDATA[$F{nivel_pokemon}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c210702b-0b82-480c-8f24-b7f068bb41d5"/>
+					<box style="Detail">
+						<pen lineWidth="1.0" lineColor="#661E1D"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="2.75" lineStyle="Solid" lineColor="#941412"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="5295c61f-941e-421f-bd45-ae8ca8dcecf3" positionType="Float" x="222" y="0" width="88" height="60" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle" style="Detail">
+					<expression><![CDATA[$F{tipo}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8945c73b-f75d-44d0-b2be-efaf61359a92"/>
+					<box style="Detail">
+						<pen lineWidth="1.0" lineColor="#661E1D"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="2.75" lineStyle="Solid" lineColor="#941412"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="93eeb75f-73ef-47a8-8505-70ef3676cbfe" positionType="Float" x="310" y="0" width="100" height="60" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle" style="Detail">
+					<expression><![CDATA[$F{num_pokedex}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf73a6e4-8c71-45b2-9d26-8df0ffdf51b2"/>
+					<box style="Detail">
+						<pen lineWidth="1.0" lineColor="#661E1D"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="2.75" lineStyle="Solid" lineColor="#941412"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+				</element>
+				<element kind="image" uuid="ed30825b-8fb1-4322-af24-aa1823d5f102" x="410" y="4" width="142" height="56">
+					<expression><![CDATA[new java.io.ByteArrayInputStream(
+    java.util.Base64.getDecoder().decode($F{imagen}.getBytes())
+)
+]]></expression>
+					<box>
+						<pen lineWidth="1.0" lineColor="#661E1D"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="2.75" lineStyle="Solid" lineColor="#941412"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+				</element>
+				<box style="Row">
+					<pen lineWidth="1.0" lineColor="#661E1D"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#941412"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="7" splitType="Stretch">
+		<element kind="line" uuid="1133a906-5b71-476e-9f3e-bc97c97058c1" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1">
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</element>
+	</columnFooter>
+	<pageFooter height="25" splitType="Stretch">
+		<element kind="frame" uuid="729c3539-f946-4d0e-a0a7-bda2815ea1b0" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000">
+			<element kind="textField" uuid="4834e99c-7f6c-485a-b098-50e5187f2ab4" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" fontSize="10.0" evaluationTime="Report" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+			</element>
+			<element kind="textField" uuid="9825b46e-76f1-469a-abb8-a1cc27aad685" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" fontSize="10.0" bold="false" hTextAlign="Right" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+			</element>
+			<element kind="textField" uuid="137d38c7-1a83-4fc5-b156-9d5f1b1a0ddc" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" fontSize="10.0" pattern="EEEEE dd MMMMM yyyy" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+		</element>
+	</pageFooter>
+	<summary splitType="Stretch"/>
+</jasperReport>

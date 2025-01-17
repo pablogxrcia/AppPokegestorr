@@ -35,9 +35,12 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.transformation.FilteredList;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -70,6 +73,8 @@ public class Controlador implements Initializable{
     private TableView<Captura> capturaTable;
     @FXML
     private TableView<Pokemon> pokemonTable;
+    @FXML
+    private ImageView imgInforme;
     @FXML
     private TableColumn<Entrenador, String> colID;
     @FXML
@@ -278,6 +283,7 @@ public class Controlador implements Initializable{
         imgSalir.setImage(new Image(getClass().getClassLoader().getResourceAsStream("boton-salir.png")));
         imgBuscadorPokemon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("pokeball-azul.png")));
         imgBuscadorPokemon2.setImage(new Image(getClass().getClassLoader().getResourceAsStream("pokeball-azul.png")));
+        imgInforme.setImage(new Image(getClass().getClassLoader().getResourceAsStream("informe.png")));
     }
     
     private void configurarBotonesPorTab() {
@@ -1919,4 +1925,27 @@ public class Controlador implements Initializable{
             restaurar.play();
         });
     }
-}
+    
+     @FXML
+        void btnInformes(ActionEvent event) {
+            try {
+                // Cargar el archivo FXML
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../vista/informe.fxml"));
+                Parent root = loader.load();
+
+                // Crear una nueva escena
+                Scene scene = new Scene(root);
+
+                // Crear un nuevo Stage
+                Stage stage = new Stage();
+                stage.setTitle("Informe");
+                stage.setScene(scene);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                // Mostrar la nueva ventana
+                stage.showAndWait();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());; // Imprimir el error en caso de que el archivo no se cargue
+            }
+        }
+    }
+

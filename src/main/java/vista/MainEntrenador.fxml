@@ -39,6 +39,11 @@
                         <ImageView fx:id="imgEliminar" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Button>
+                  <Button alignment="CENTER" contentDisplay="TOP" onAction="#btnInformes" text="_Informe">
+                     <graphic>
+                        <ImageView fx:id="imgInforme" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
                   <Button fx:id="btnExit" alignment="CENTER" contentDisplay="TOP" text="_Salir">
                      <graphic>
                         <ImageView fx:id="imgSalir" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
